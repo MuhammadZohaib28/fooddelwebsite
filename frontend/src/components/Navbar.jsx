@@ -39,7 +39,10 @@ const Navbar = () => {
           <img src={assets.search_icon} alt="search" className="w-4 h-4" />
         </div>
 
-        <div className="relative cursor-pointer">
+        <div
+          className="relative cursor-pointer"
+          onClick={() => navigate("/cart")}
+        >
           <img src={assets.cart_icon} alt="cart" className="opacity-80 w-6" />
           <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">
             3
@@ -57,12 +60,28 @@ const Navbar = () => {
             Login
           </button>
         ) : (
-          <button
-            onClick={logout}
-            className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
-          >
-            Logout
-          </button>
+          <div className="relative group cursor-pointer ">
+            <img src={assets.profile_icon} className="w-10" alt="" />
+            <ul className="hidden group-hover:block absolute top-10 left-0 bg-white shadow border border-primary py-2.5 w-30 rounded-md text-sm z-40">
+              <li
+                onClick={() => navigate("my-orders")}
+                className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
+              >
+                My Orders
+              </li>
+              <li
+                onClick={logout}
+                className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
+              >
+                <button
+                  onClick={logout}
+                  className="cursor-pointer px-6 py-2 mt-2 bg-primary hover:bg-primary-dull transition text-white rounded-full text-sm"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
         )}
       </div>
 
