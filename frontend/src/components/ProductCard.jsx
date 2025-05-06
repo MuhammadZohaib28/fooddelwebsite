@@ -3,7 +3,6 @@ import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
 
 const ProductCard = ({ product }) => {
-  const [count, setCount] = useState(0);
   const {
     currency,
     addToCart,
@@ -49,7 +48,7 @@ const ProductCard = ({ product }) => {
                 {product.price}
               </span>
             </p>
-            <div onClick={(e) => e.stopPropogation()} className="text-primary">
+            <div onClick={(e) => e.stopPropagation()} className="text-primary">
               {!cartItems[product._id] ? (
                 <button
                   className="flex items-center justify-center gap-1 bg-primary/10 border border-primary md:w-[80px] w-[64px] h-[34px] rounded text-primary font-medium cursor-pointer"
